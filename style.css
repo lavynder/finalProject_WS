@@ -1,0 +1,25 @@
+:root{
+    --textcolor: #B33C86;
+}
+
+.container{
+    position: absolute;
+    width: clamp(200px, 75%, 100%);
+    height: clamp(200px, 75%, 100%);
+    right: 10%;
+    left: 10%;
+
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 2%;
+
+
+}
+
+.Mainbtns{
+    padding: 10px;
+}
+
