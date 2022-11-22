@@ -1,0 +1,32 @@
+{
+  "name": "finalproject_ws",
+  "version": "1.0.0",
+  "description": "Final project for Web&Script programming",
+  "main": "node ./server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lavynder/finalProject_WS.git"
+  },
+  "author": "Fatima Kaleem, Maia Frangoudis, Liam McIntosh, Liam Cunningham, Leo Fanseda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lavynder/finalProject_WS/issues"
+  },
+  "homepage": "https://github.com/lavynder/finalProject_WS#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "bootstrap": "^5.2.2",
+    "connect": "^3.7.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.8",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jquery": "^3.6.1",
+    "mongoose": "^6.7.2",
+    "morgan": "~1.9.1"
+  }
+}
