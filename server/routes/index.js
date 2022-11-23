@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let indexController = require('../controller/indexControl');
+let indexController = require('../controller/index');
 
 /* BY DEFAULT, GET THE Home PAGE */
 router.get('/', indexController.displayLanding);
