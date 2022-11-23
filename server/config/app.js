@@ -20,8 +20,8 @@ mongDB.once('open', ()=> {
 
 
 // SETTING UP THE REQUIRED ROUTERS
-let indexRouter = require('../routes/indexRoutes');
-let gamesRouter = require('../routes/gamesRoutes');
+let indexRouter = require('../routes/index');
+let gamesRouter = require('../routes/games');
 
 let app = express();
 

@@ -2,7 +2,7 @@
   "name": "finalproject_ws",
   "version": "1.0.0",
   "description": "Final project for Web&Script programming",
-  "main": "node ./server.js",
+  "main": "./server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
