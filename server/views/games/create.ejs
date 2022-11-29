@@ -1,82 +1,59 @@
 <div class="container">
     <div class="row">
-        <div class ="offset-3 col-md-6">
-            <h1><%= title %></h1>
+        <div class="offset-3 col-md-6">
+            <h1>
+                <%= title %>
+            </h1>
             <form class="form" method="post">
                 <!-- form for user to add data for editing. same as comments on add.ejs-->
-                <div class="form-group"> <!-- form-group is bootstrap class -->
+                <div class="form-group">
+                    <!-- form-group is bootstrap class -->
                     <label for="taskusernameTextField">Name</label> <!-- label for the input field -->
                     <!-- input field -->
-                    <input type="text" class="form-control"  
-                    id="usernameTextField"
-                    placeholder="Enter your name"
-                    name="username" 
-                    value="<%= task.username %>" 
-                    required>  <!-- note for leo i dont know what to change this above task label to -->
+                    <input type="text" class="form-control" id="usernameTextField" placeholder="Enter your name"
+                        name="username" required>
 
                 </div>
 
-                <div class="form-group"> <!-- form-group is bootstrap class -->
-                    <label for="gameTitleTextField">Game Titlee</label> <!-- label for the input field -->
+                <div class="form-group">
+                    <!-- form-group is bootstrap class -->
+                    <label for="gameTitleTextField">Game Title</label> <!-- label for the input field -->
                     <!-- input field for the game title -->
-                    <input type="text" class="form-control" 
-                    id=" gameTitleTextField"
-                    placeholder="Enter the due date"
-                    name="gameTitle"
-                    value="<%= task.gameTitle %>"
-                     required> <!-- note for leo i dont know what to change this above task label to -->
-                    
+                    <input type="text" class="form-control" id=" gameTitleTextField" placeholder="Enter the game title"
+                        name="gameTitle" required>
                 </div>
 
-                <div class="form-group"> <!-- form group for the game genre -->
+                <div class="form-group">
+                    <!-- form group for the game genre -->
                     <label for="genreTextField">Genre</label>
-                    <input type="text" class="form-control"
-                    id="genreTextField"
-                    placeholder="Enter how much your assignment is worth"
-                    name="genre"
-                    value="<%= task.genre %>"
-                     required> <!-- note for leo i dont know what to change this above task label to -->
-
-                </div>   
-                <div class="form-group"> <!-- form group for the game genre -->
-                    <label for="genreTextField">Genre</label>
-                    <input type="text" class="form-control"
-                    id="genreTextField"
-                    placeholder="Enter how much your assignment is worth"
-                    name="genre"
-                    value="<%= task.genre %>"
-                     required> <!-- note for leo i dont know what to change this above task label to -->
-
+                    <input type="text" class="form-control" id="genreTextField"
+                        placeholder="Enter the genre of the game" name="genre" required>
                 </div>
-             
 
-                     <!-- <div class="form-group"
-                        <label> for="descTextField">Genre</label>
-                        <textarea rows="5" cols="33">
-                        This is the default comment...  
-                        </textarea>  -->
 
-                <div class="form-group"> <!-- form group for the game genre -->
+                <div class="form-group"> <label for="descTextField">Description</label>
+                    <textarea rows="5" cols="33" type="text" class="form-control" id="descTextfield"
+                        placeholder='This is the default comment...' name="desc" required>
+                        </textarea>
+                </div>
+                
+                <div class="form-group">
+                    <!-- form group for the game genre -->
                     <label for="genreTextField">Rating</label>
-                    <input type="text" class="form-control"
-                    id="ratingTextField"
-                    placeholder="Enter a number on a scale of 1 to 10"
-                    name="rating"
-                    value="<%= task.rating %>"
-                     required> <!-- note for leo i dont know what to change this above task label to -->
+                    <input type="number" class="form-control" id="ratingTextField"
+                        placeholder="Enter a number on a scale of 1 to 10" name="rating" required>
 
                 </div>
 
-                        
-                `</div>
+
+
                 <br>
                 <button class="btn-btn-primary" type="submit">
                     <i class="fas fa-edit"></i>Submit</button> <!-- button to  submit the form -->
 
-                <a href ="/task-list" class="btn btn-warning">
+                <a href="/gamesIndex" class="btn btn-warning">
                     <i class="fas fa-undo"></i>Cancel</a> <!-- button to cancel the form -->
 
-            </form
+            </form>
         </div>
     </div>
-</div>
