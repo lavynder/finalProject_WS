@@ -1,0 +1,44 @@
+<!-- REFERENCED FROM THE PROFESSOR AHMED'S VIDEOS -->
+
+<!--NavBar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">INFR3120</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto"> 
+
+        <li class="nav-item">
+        <% if (title == "home") { %>
+          <a class="nav-link active" href="/home">
+        <% } else { %>
+          <a class="nav-link" href="/home">
+        <% } %>
+          <i class="fa-solid fa-lg fa-house-user"></i> Home</a>
+        </li>
+
+        <li class="nav-item">
+        <% if (title == "about") { %>
+          <a class="nav-link active" href="/about">
+        <% } else { %>
+          <a class="nav-link" href="/about">
+        <% } %>
+          <i class="fa-sharp fa-solid fa-circle-info"></i>
+           About Us</a>
+        </li>        
+   
+        <li class="nav-item">
+        <% if (title == "contact") { %>
+          <a class="nav-link active" href="/contact">
+        <% } else { %>
+          <a class="nav-link" href="/contact">
+        <% } %>
+          <i class="fa-solid fa-phone"></i> 
+          Contact Us</a>
+        </li>
+
+    </div>
+  </div>
+</nav>
