@@ -9,7 +9,7 @@ let games = require('../models/gamesModel');
 
 // READ
 module.exports.displayGames = (req,res,next)=> {
-    games.find((err, gamesList)=> {
+    games.find((err, entryRead)=> {
         if(err)
         {
             return console.log(err);
@@ -18,7 +18,7 @@ module.exports.displayGames = (req,res,next)=> {
         {
             res.render('games/read', {
                 title: 'Games Database', 
-                gamesList: gamesList
+                entryRead: entryRead
             });
         }
     }); 
