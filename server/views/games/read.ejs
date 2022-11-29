@@ -1,1 +1,49 @@
+<main>
+<div class="container"> Description
+    <div class="row"> <!-- row 1 -->
+        <div class="col-md-offset-3 col-md-10"> <!-- col-md-offset-3 col-md-10 -->
+            <h1><%= title %></h1>
+            <a href="/games/create" class ="btn btn-primary" role="button"> 
+                <i class = "fas fa-plus-circle"></i> Add a Game! </a> <!--- Add a Game button -->
+            <br>
+            <br>
+    <table class="table table-bordered table-striped table-hover"> <!--- Table -->
+    <tr>
+        <th class="text-center col-2">username</th> <!--- Username column -->
+        <th class="text-center col-2">gameTitlw</th> <!--- Game Title column -->
+        <th class="text-center col-1">genre</th> <!--- Genre column -->           
+        <th class="text-center col-1">desc</th> <!--- Description column -->           
+        <th class="text-center col-1">date</th> <!--- Date column -->           
+        <th class="text-center col-1">rating</th> <!--- Rating column -->           
+        <th class="text-center col-1"></th> <!--- Delete column -->
+        <th class="text-center col-1"></th> 
+    </tr>
+    <!--Repeat the template-->
+    <% for(let count=0; count<Gamelist.length; count++) { %> <!--- Loop through the array -->
+        <tr>
+            <td class="text-center col-2"><%= Gamelist[count].username%></td> <!--- Username column -->           
+            <td class="text-center col-2"><%= Gamelist[count].gameTitle%></td> <!--- Game Title column -->           
+            <td class="text-center col-1"><%= Gamelist[count].genre%></td> <!--- Genre column -->          
+            <td class="text-center col-1"><%= Gamelist[count].desc%></td> <!--- Description column -->           
+            <td class="text-center col-1"><%= Gamelist[count].date%></td> <!--- Date column -->           
+            <td class="text-center col-1"><%= Gamelist[count].reating%></td> <!--- Rating column -->           
+            <td class="text-center col-1"> <!--- Delete button column -->
 
+                <!-- Edit button -->   
+                <a href = "/task-LIST/edit/<%= Gamelist[count]._id %>" 
+                    class ="btn btn-primary"> 
+                    <i class="fas fa-pencil-alt"></i> Edit </a>         
+                </td>
+                <!-- Delete button -->       
+            <td class="text-center col-1">
+                <a href = "/task-list/delete/<%= Gamelist[count]._id %>"
+                    class ="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Delete </a>
+                    
+            </td>
+        </tr>
+    <% } %>
+    </table>
+</div>
+</div>
+</main>
