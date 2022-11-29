@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <main>
 <div class="container"> Description
     <div class="row"> <!-- row 1 -->
@@ -47,3 +48,91 @@
 </div>
 </div>
 </main>
+=======
+<%- include ('../partials/header.ejs') %>
+
+    <main>
+        <div class="jumbotron jumbotron-fluid w-100">
+            <div class="ms-5">
+            <h1>
+                <%= title %>
+            </h1>
+            <a href="/games/create" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Add a Game! </a>
+            </div>
+
+            <!--- Add a Game button -->
+            <div class="jumbotron jumbotron-fluid w-100 ms-5">
+                <div class="row">
+                    <!-- row 1 -->
+                    <div class="col-md-offset-3 col-md-10">
+                        
+
+
+                        <br>
+                        <br>
+
+                        <table class="table table-bordered table-striped table-hover">
+                            <!--- Table -->
+                            <tr>
+                                <th class="text-center col-3">username</th>
+                                <!--- Username column -->
+                                <th class="text-center col-4">gameTitle</th>
+                                <!--- Game Title column -->
+                                <th class="text-center col-2">genre</th>
+                                <!--- Genre column -->
+                                <th class="text-center col-4">desc</th>
+                                <!--- Description column -->
+                                <th class="text-center col-2">rating</th>
+                                <!--- Rating column -->
+                                <th class="text-center col-1"></th>
+                                <!--- Delete column -->
+                                <th class="text-center col-1"></th>
+                            </tr>
+                            <!--Repeat the template-->
+                            <% for(let count=0; count<entryRead.length; count++) { %>
+                                <!--- Loop through the array -->
+                                <tr>
+                                    <td class="text-center col-3">
+                                        <%= entryRead[count].username%>
+                                    </td>
+                                    <!--- Username column -->
+                                    <td class="text-center col-4">
+                                        <%= entryRead[count].gameTitle%>
+                                    </td>
+                                    <!--- Game Title column -->
+                                    <td class="text-center col-2">
+                                        <%= entryRead[count].genre%>
+                                    </td>
+                                    <!--- Genre column -->
+                                    <td class="text-center col-4">
+                                        <%= entryRead[count].desc%>
+                                    </td>
+                                    <!--- Description column -->
+                                    <td class="text-center col-2">
+                                        <%= entryRead[count].rating%>
+                                    </td>
+                                    <!--- Rating column -->
+                                    <td class="text-center col-1">
+                                        <!--- Delete button column -->
+
+                                        <!-- Edit button -->
+                                        <a href="/gamesIndex/update<%= entryRead[count]._id %>" class="btn btn-primary">
+                                            <i class="fas fa-pencil-alt"></i> Edit </a>
+                                    </td>
+                                    <!-- Delete button -->
+                                    <td class="text-center col-1">
+                                        <a href="/gamesIndex/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i> Delete </a>
+
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+    </main>
+    <%- include ('../partials/footer.ejs') %>
+>>>>>>> Stashed changes
