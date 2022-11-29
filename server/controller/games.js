@@ -38,7 +38,6 @@ module.exports.processCreate = (req,res,next)=> {
         'gameTitle':req.body.gameTitle,
         'genre':req.body.genre,
         'desc':req.body.desc,
-        'dateFinished':req.body.date,
         'rating':req.body.rating
 
     });
@@ -85,7 +84,6 @@ module.exports.processUpdate = (req,res,next)=> {
         'gameTitle':req.body.gameTitle,
         'genre':req.body.genre,
         'desc':req.body.desc,
-        'dateFinished':req.body.date,
         'rating':req.body.rating
     });
     games.updateOne({_id:id}, updateEntry, (err) =>{
