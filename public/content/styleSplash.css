@@ -4,9 +4,7 @@
 }
 
 
-.bg{
-    background-color: red;
-}
+
 
 #bgvid{
     position: fixed;
@@ -20,8 +18,19 @@
 }
 #companyname{
     color: #fff;
+    text-align: center;
+    border-radius: 10px;
     font-size: 30px;
     font-weight: bold;
+    position: fixed;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    
+    
+    width: 100%;
+    height: clamp(10%, 10%, 15%);
 }
 #title{
     color: #fff;
@@ -49,7 +58,7 @@
 .btntray{
     position: absolute;
     left:35%;
-    top: 40%;
+    top: -100%;
 
     
 
@@ -57,12 +66,15 @@
     height: clamp(10%, 300px, 40%);
     
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row: auto auto;
+    grid-template-columns: 1fr;
+    grid-row: auto;
     grid-column-gap: 3%;
     grid-row-gap: 3%;
-    animation: slideInLeft;
+    animation: startAtTop;
     animation-duration: 2s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    
 }
 
 .btntray a{  /*Designs for the exterior of the button*/
@@ -75,6 +87,7 @@
     justify-content:center;
     font-size:40px;
     font-family:sans-serif;
+    opacity: 90%;
 }
 
 .btntray a{     /*This is used for designing the interior of the button*/
@@ -89,18 +102,22 @@
     
 }
 .btntray :before{
-    animation: btnhover;
-    animation-duration: 5s;
+    animation-name: startAtTop;
+    animation-duration: 2s;
     
 }
 .btntray :hover{
     scale: 1.25;
 }
-@keyframes slideInLeft {
+@keyframes slideInBottom {
     0% {
-      transform: translateX(-100%);
+      transform: translateY(-100%);
     }
     100% {
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
+  @keyframes startAtTop {
+    from {top: -100%;}
+    to {top: 40%;}
+    }

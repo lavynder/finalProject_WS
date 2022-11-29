@@ -1,36 +1,22 @@
+<%- include ('../partials/headerSplash') %>
 
-<%- include ('../partials/header.ejs') %> <!-- add the partial for header -->
-
-<style> /* add the style for the page */
-    .grid{ /* add the style for the grid */
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
-    place-items: center; 
-}
-</style>
-<body style="background-color:#03012C"> <!-- add the style for the body -->
-    <div class="container" style="background-color:#190E4f"> <!-- add the style for the container -->
-        <div class="grid"> <!-- add the style for the grid -->
-            <div class="Mainbtns"> <!-- add the style for the Mainbtns -->
-                <a href="INSERT LINK TO OTHER PAGE"> 
-                    <button class="btn btn-primary" style="background-color:#190E4f">BOX1</button> 
-                </a>
-                
-            </div>
-            <div class="Mainbtns"> <!-- add the style for the Mainbtns -->;
-                <a href="INSERT LINK TO OTHER PAGE">
-                    <button class="btn btn-primary" style="background-color:#190E4f">BOX2</button> 
-                </a>
-            </div>
-            
-        
-            
-        </div>
-
+<body>
+    <video autoplay muted loop id="bgvid">
+        <source src="../../../public/assets/videos/bgvid.mp4" type="video/mp4" alt="BACKGROUND VIDEO"> <!-- Source of the video -->
+    </video>
+    <!--Company/Site name-->
+    <div class="pgheader">
+    <h1 id="companyname"><%= title %> </h1>
+    
     </div>
+        <div class="btntray">
+            <!--This is the button tray-->
+
+
+            <a href="home" type="button" class="btn btn-lg btn-block">Dive In!</button>
+            </a>
+
+
+        </div>
     
 </body>
-
-
-
