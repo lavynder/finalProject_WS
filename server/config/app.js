@@ -6,6 +6,10 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+// GET ENVIRONMENT VARIABLES FOR MONGODB CONNECTIVITY
+// SOURCE: https://www.youtube.com/watch?v=hZUNMYU4Kzo
+require('dotenv').config()
+
 // CONFIG MONGODB
 let mongoose = require('mongoose');
 let DB = require('./db');
