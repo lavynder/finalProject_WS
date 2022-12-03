@@ -11,3 +11,10 @@ module.exports.displayLogin = (req, res, next) => {
         title: 'Login'
       });
 }
+
+//DISPLAY LOGIN PAGE
+module.exports.displayLogin = (req, res, next) => {
+  res.render('user/login', { 
+      title: 'Login'
+    });
+}
