@@ -1,0 +1,48 @@
+<%- include ('../partials/headerHome') %>
+
+<body>
+    <video autoplay muted loop id="bgvid">
+        <source src="../../assets/videos/bgvid.mp4" type="video/mp4"> <!-- Source of the video -->
+    </video>
+    <!--Imports the script from javascript typed for use-->
+    <div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+
+    <!--Company/Site name-->
+        <h1 id="companyname">Game Review Site</h1>
+        <!--This is the header of the page-->
+        <p id="title">Your hub for <span class="auto-type"></span></p>
+    
+        <!--Script makes the typing animation for the title-->
+        <script>
+            var typed = new Typed('.auto-type', {
+                strings: ["news", "reviews", "your new favorite game",],
+                typeSpeed: 50,
+                backSpeed: 50,
+                loop: false,
+            });
+        </script>
+
+
+            <div class="btntray"> <!--This is the button tray-->
+
+                
+                    <a href="about"
+                        type="button" class="btn btn-lg btn-block">ABOUT US</button>
+                    </a>
+                
+                    <a href="contact"
+                        type="button" class="btn btn-lg btn-block">CONTACT US</button>
+                    </a>
+                
+                    <a href="../gamesIndex"
+                        type="button" class="btn btn-lg btn-block">DATABASE</button>
+                    </a>
+               
+    
+            </div>
+        </div>   
+</body>
+
+<%- include ('../partials/footer.ejs') %>

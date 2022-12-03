@@ -9,7 +9,7 @@ let games = require('../models/gamesModel');
 
 // READ
 module.exports.displayGames = (req,res,next)=> {
-    games.find((err, gamesList)=> {
+    games.find((err, entryRead)=> {
         if(err)
         {
             return console.log(err);
@@ -18,7 +18,7 @@ module.exports.displayGames = (req,res,next)=> {
         {
             res.render('games/read', {
                 title: 'Games Database', 
-                gamesList: gamesList
+                entryRead: entryRead
             });
         }
     }); 
@@ -38,7 +38,6 @@ module.exports.processCreate = (req,res,next)=> {
         'gameTitle':req.body.gameTitle,
         'genre':req.body.genre,
         'desc':req.body.desc,
-        'dateFinished':req.body.date,
         'rating':req.body.rating
 
     });
@@ -60,7 +59,7 @@ module.exports.processCreate = (req,res,next)=> {
 // DISPLAY
 module.exports.displayUpdate = (req,res,next)=> {
     let id = req.params.id;
-    games.findById(id, (err, entryUpdate) =>{
+    games.findById(id, (err, entryRead) =>{
         if(err)
         {
             console.log(err);
@@ -70,7 +69,7 @@ module.exports.displayUpdate = (req,res,next)=> {
         {
             res.render('games/update', 
             {title: 'Update Entry', 
-            entryUpdate: entryUpdate
+            entryRead: entryRead    
             });
         }
     });
@@ -85,7 +84,6 @@ module.exports.processUpdate = (req,res,next)=> {
         'gameTitle':req.body.gameTitle,
         'genre':req.body.genre,
         'desc':req.body.desc,
-        'dateFinished':req.body.date,
         'rating':req.body.rating
     });
     games.updateOne({_id:id}, updateEntry, (err) =>{

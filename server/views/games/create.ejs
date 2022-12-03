@@ -1,0 +1,62 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-3 col-md-6">
+            <h1>
+                <%= title %>
+            </h1>
+            <form class="form" method="post">
+                <!-- form for user to add data for editing. same as comments on add.ejs-->
+                <div class="form-group">
+                    <!-- form-group is bootstrap class -->
+                    <label for="taskusernameTextField">Name</label> <!-- label for the input field -->
+                    <!-- input field -->
+                    <input type="text" class="form-control" id="usernameTextField" placeholder="Enter your name"
+                        name="username" required>
+
+                </div>
+
+                <div class="form-group">
+                    <!-- form-group is bootstrap class -->
+                    <label for="gameTitleTextField">Game Title</label> <!-- label for the input field -->
+                    <!-- input field for the game title -->
+                    <input type="text" class="form-control" id=" gameTitleTextField" placeholder="Enter the game title"
+                        name="gameTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <!-- form group for the game genre -->
+                    <label for="genreTextField">Genre</label>
+                    <input type="text" class="form-control" id="genreTextField"
+                        placeholder="Enter the genre of the game" name="genre" required>
+                </div>
+
+
+                <div class="form-group"> <label for="descTextField">Description</label>
+                    <textarea rows="5" cols="33" type="text" class="form-control" id="descTextfield"
+                        placeholder='This is the default comment...' name="desc" required>
+                        </textarea>
+                </div>
+                
+                <div class="form-group">
+                    <!-- form group for the game genre -->
+                    <label for="genreTextField">Rating</label>
+                    <input type="number" class="form-control" id="ratingTextField"
+                        placeholder="Enter a number on a scale of 1 to 10" name="rating" required>
+
+                </div>
+
+
+
+                <br>
+                <button class="btn-btn-primary" type="submit">
+                    <i class="fas fa-edit"></i>Submit</button> <!-- button to  submit the form -->
+
+                <a href="/gamesIndex" class="btn btn-warning">
+                    <i class="fas fa-undo"></i>Cancel</a> <!-- button to cancel the form -->
+
+            </form>
+        </div>
+    </div>

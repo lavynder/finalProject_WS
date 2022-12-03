@@ -11,6 +11,20 @@ module.exports.displayLanding = (req, res, next) => {
 // DISPLAY HOME PAGE
 module.exports.displayHome = (req, res, next) => {
     res.render('pages/home', { 
-        title: 'Home'
+        title: 'home'
       });
+}
+
+// DISPLAY HOME PAGE
+module.exports.displayAbout = (req, res, next) => {
+  res.render('pages/about', { 
+      title: 'about'
+    });
+}
+
+// DISPLAY HOME PAGE
+module.exports.displayContact = (req, res, next) => {
+  res.render('pages/contact', { 
+      title: 'contact'
+    });
 }

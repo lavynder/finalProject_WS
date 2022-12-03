@@ -7,7 +7,6 @@ let gamesModel = mongoose.Schema({
     gameTitle: String,
     genre: String,
     desc: String,
-    dateFinished: Date,
     rating: Number
     },
     {
