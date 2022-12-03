@@ -13,8 +13,8 @@ module.exports.displayLogin = (req, res, next) => {
 }
 
 //DISPLAY LOGIN PAGE
-module.exports.displayLogin = (req, res, next) => {
-  res.render('user/login', { 
-      title: 'Login'
+module.exports.displayRegister = (req, res, next) => {
+  res.render('user/register', { 
+      title: 'Register'
     });
 }
