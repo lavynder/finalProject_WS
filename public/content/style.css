@@ -107,9 +107,10 @@
 
 .jumbotronfluid{
     text-align: center;
-    background-color: transparent;
+    background-color: black;
     border-radius: 10px;
     color: #fff;
+    border-radius: 50px;
 }
 
 .section-2{
