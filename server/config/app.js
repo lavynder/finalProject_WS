@@ -1,4 +1,3 @@
-
 // 3RD PARTY PACKAGES
 let createError = require('http-errors');
 let express = require('express');
@@ -57,6 +56,7 @@ passport.deserializeUser(user.deserializeUser());
 // SETTING UP THE REQUIRED ROUTERS
 let indexRouter = require('../routes/index');
 let gamesRouter = require('../routes/games');
+let userRouter = require('../routes/user');
 const { markAsUntransferable } = require('worker_threads');
 
 // VIEW ENGINE SETUP
@@ -71,7 +71,8 @@ app.use(express.static(path.join(__dirname, "../../public")));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter); // localhost:3000
-app.use('/gamesIndex', gamesRouter); // localhost:3000/gamesIndex
+app.use('/user', userRouter); // localhost:3000/user
+app.use('/games', gamesRouter); // localhost:3000/games
 
 
 // CATCH 404 ERRORS AND FORWARD TO ERROR

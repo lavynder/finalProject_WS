@@ -1,17 +1,17 @@
 let express = require('express'); 
 let router = express.Router();
-let indexController = require('../controller/index');
+let indexControl = require('../controller/index');
 
 /* BY DEFAULT, GET THE Home PAGE */
-router.get('/', indexController.displayLanding);
+router.get('/', indexControl.displayLanding);
 
 /* GET THE Home PAGE */
-router.get('/home', indexController.displayHome);
+router.get('/home', indexControl.displayHome);
 
 /* GET THE About PAGE */
-router.get('/about', indexController.displayAbout);
+router.get('/about', indexControl.displayAbout);
 
 /* GET THE Contact PAGE */
-router.get('/contact', indexController.displayContact);
+router.get('/contact', indexControl.displayContact);
 
 module.exports = router;
