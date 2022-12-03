@@ -9,7 +9,7 @@ let gamesControl = require('../controller/games');
 /* CRUD OPERATIONS*/
 
 // READ OPERATION
-router.get('/read', gamesControl.displayGames);
+router.get('/', gamesControl.displayGames);
 
 // CREATE OPERATION
 // GET ROUTE FOR DISPLAYING THE CREATE PAGE
