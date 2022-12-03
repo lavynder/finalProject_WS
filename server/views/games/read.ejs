@@ -7,7 +7,7 @@
             <h1>
                 <%= title %>
             </h1>
-            <a href="/gamesIndex/create" class="btn btn-primary" role="button">
+            <a href="/games/create" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add a Game! </a>
             </div>
 
@@ -67,12 +67,12 @@
                                         <!--- Delete button column -->
 
                                         <!-- Edit button -->
-                                        <a href="/gamesIndex/update/<%= entryRead[count]._id %>" class="btn btn-primary">
+                                        <a href="/games/update/<%= entryRead[count]._id %>" class="btn btn-primary">
                                             <i class="fas fa-pencil-alt"></i> Edit </a>
                                     </td>
                                     <!-- Delete button -->
                                     <td class="text-center col-1">
-                                        <a href="/gamesIndex/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
+                                        <a href="/games/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
                                             <i class="fas fa-trash-alt"></i> Delete </a>
 
                                     </td>
