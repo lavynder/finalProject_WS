@@ -28,12 +28,14 @@ mongDB.once('open', ()=> {
   console.log('Connected to the MongoDB');
 });
 
+let app = express();
+
 // SETTING UP EXPRESS SESSION
 app.use(session({
   secret: "finalProject",
   saveUninitialized: false,
   resave: false
-}))
+}));
 
 // INITIALIZE FLASH
 app.use(flash());
@@ -50,12 +52,12 @@ let user = userModel.user;
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
+
+
 // SETTING UP THE REQUIRED ROUTERS
 let indexRouter = require('../routes/index');
 let gamesRouter = require('../routes/games');
 const { markAsUntransferable } = require('worker_threads');
-
-let app = express();
 
 // VIEW ENGINE SETUP
 app.set('views', path.join(__dirname, '../views'));
