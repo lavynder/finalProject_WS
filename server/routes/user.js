@@ -6,6 +6,6 @@ let userControl = require('../controller/user');
 router.get('/register', userControl.displayRegister);
 
 // REGISTER USER          
-router.get('/login', userControl.displayLogin);
+router.post('/login', userControl.displayLogin);
 
 module.exports = router;

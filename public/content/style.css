@@ -104,3 +104,33 @@
       transform: translateX(0);
     }
   }
+
+.jumbotronfluid{
+    text-align: center;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.section-2{
+    text-align: center;
+    color: #fff;
+    /*background-color:mediumpurple;*/
+    border-radius: 50px;
+
+}
+
+.coolpic{
+    position: fixed;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10; 
+    background-image: ("betterpic.jpg");
+    background-position: center; /* to center and scale the image */
+    background-repeat: no-repeat;/* to center and scale the image */
+    background-size: cover; /* to center and scale the image */
+}
+
+body, html{
+    height: 100%;
+}

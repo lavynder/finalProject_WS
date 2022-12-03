@@ -6,9 +6,9 @@ let mongoose = require('mongoose');
 let user = require('../models/userModel');
 
 // DISPLAY REGISTRATION PAGE
-module.exports.displayRegister = (req, res, next) => {
-    res.render('user/register', { 
-        title: 'Register'
+module.exports.displayLogin = (req, res, next) => {
+    res.render('user/login', { 
+        title: 'Login'
       });
 }
 
