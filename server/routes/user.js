@@ -2,10 +2,10 @@ let express = require('express');
 let router = express.Router();
 let userControl = require('../controller/user');
 
-// BY DEFAULT, DISPLAY REGISTRATION PAGE
+// DISPLAY REGISTRATION PAGE
 router.get('/register', userControl.displayRegister);
 
-// REGISTER USER          
+// REGISTER LOGIN PAGE          
 router.post('/login', userControl.displayLogin);
 
 module.exports = router;
