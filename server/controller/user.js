@@ -11,3 +11,10 @@ module.exports.displayRegister = (req, res, next) => {
         title: 'Register'
       });
 }
+
+//DISPLAY LOGIN PAGE
+module.exports.displayLogin = (req, res, next) => {
+  res.render('user/login', { 
+      title: 'Login'
+    });
+}
