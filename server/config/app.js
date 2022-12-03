@@ -5,6 +5,16 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash')
+
+
+// FOR ENVIRONMENT VARIABLES FOR MONGODB CONNECTIVITY
+// SOURCE: https://www.youtube.com/watch?v=hZUNMYU4Kzo
+let env = require('dotenv').config();
 
 // CONFIG MONGODB
 let mongoose = require('mongoose');
@@ -18,12 +28,36 @@ mongDB.once('open', ()=> {
   console.log('Connected to the MongoDB');
 });
 
+let app = express();
+
+// SETTING UP EXPRESS SESSION
+app.use(session({
+  secret: "finalProject",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// INITIALIZE FLASH
+app.use(flash());
+
+// INITIALIZE PASSPORTS
+app.use(passport.initialize());
+app.use(passport.session());
+
+// CREATE INSTANCE OF USER MODEL
+let userModel = require('../models/userModel')
+let user = userModel.user;
+
+// SERIALIZE AND DESERIALIZE THE USER INFORMATION
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
+
 
 // SETTING UP THE REQUIRED ROUTERS
 let indexRouter = require('../routes/index');
 let gamesRouter = require('../routes/games');
-
-let app = express();
+const { markAsUntransferable } = require('worker_threads');
 
 // VIEW ENGINE SETUP
 app.set('views', path.join(__dirname, '../views'));
