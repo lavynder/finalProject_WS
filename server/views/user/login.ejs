@@ -1,2 +1,23 @@
 <!-- LOGIN PAGE -->
-<h1>LOGINPAGEPLACEHOLDER</h1>
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
+
+<form class="signIn" action="/login" method="post"> <!-- ses form class, directs to login file, using post method -->
+
+  <h2>Sign in to your account</h2> <!-- page header -->
+
+  <label for="email" class="sr-only">Email Address</label> <!-- label for email -->
+  <input type="email" id="email" name="email" class="form- 
+              control" placeholder="Enter your email address" required> <!-- input for email -->
+
+  <label for="password" class="sr-only">Password</label> <!-- label for password -->
+  <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required> <!-- input for password -->
+  
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> <!-- button for sign in -->
+  <br>
+  <p>Don't have an account? <a href="/signup">Signup</a> </p> <!-- link to sign up -->
+
+</form>
+</div>
+
+<%- include ('../partials/footer.ejs') %>
