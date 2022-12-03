@@ -49,7 +49,7 @@ module.exports.processCreate = (req,res,next)=> {
         }
         else
         {
-            res.redirect('/gamesIndex');
+            res.redirect('/games');
         }
     });
 }
@@ -94,7 +94,7 @@ module.exports.processUpdate = (req,res,next)=> {
         }
         else
         {
-            res.redirect('/gamesIndex')
+            res.redirect('/games')
         }
     });
 }
@@ -110,7 +110,7 @@ module.exports.performDelete = (req,res,next)=> {
         }
         else
         {
-            res.redirect('/gamesIndex')
+            res.redirect('/games')
         }   
     });
 }

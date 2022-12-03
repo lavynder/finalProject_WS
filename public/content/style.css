@@ -107,9 +107,10 @@
 
 .jumbotronfluid{
     text-align: center;
-    background-color: transparent;
+    background-color: black;
     border-radius: 10px;
     color: #fff;
+    border-radius: 50px;
 }
 
 .section-2{
@@ -121,11 +122,14 @@
 }
 
 .coolpic{
-    position: fixed;
+    position:fixed;
     height: 100%;
     object-fit: cover;
     z-index: -10; 
-    background-image: ("betterpic.jpg");
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+    background-image:url ("betterpic.jpg");
     background-position: center; /* to center and scale the image */
     background-repeat: no-repeat;/* to center and scale the image */
     background-size: cover; /* to center and scale the image */
