@@ -105,7 +105,7 @@
     }
   }
 
-.jumbotronfluid{
+  .jumbotron-fluid{
     text-align: center;
     background-color: black;
     border-radius: 10px;
@@ -116,23 +116,18 @@
 .section-2{
     text-align: center;
     color: #fff;
-    /*background-color:mediumpurple;*/
+    /* background-color:mediumpurple; */
     border-radius: 50px;
 
 }
 
-.coolpic{
-    position:fixed;
+#coolpic{
+    position: fixed;
+    width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: -10; 
-    /*-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover; */
-    background-image:url ("betterpic.jpg");
-    background-position: center; /* to center and scale the image */
-    background-repeat: no-repeat;/* to center and scale the image */
-    background-size: cover; /* to center and scale the image */
+    background: url("../assets/images/betterpic.png" ) no-repeat center center fixed;
+    background-size: cover;
 }
 
 body, html{
