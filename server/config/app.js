@@ -31,7 +31,7 @@ let app = express();
 
 // SETTING UP EXPRESS SESSION
 app.use(session({
-  secret: "finalProject",
+  secret: process.env.SECRET,
   saveUninitialized: false,
   resave: false
 }));
