@@ -43,7 +43,7 @@ module.exports.processLogin = (req, res, next) => {
       if (err) {
         return next(err)
       }
-      return res.redirect('/games')
+      return res.redirect('/home')
     })
   })(req, res, next)
 }
