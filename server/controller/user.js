@@ -68,8 +68,8 @@ module.exports.processRegister = (req, res, next) => {
   let newUser = user({
     'email': req.body.email,
     'username': req.body.username,
-    'displayName': req.body.displayName
-    // 'password':req.body.password
+    'displayName': req.body.displayName,
+    'password':req.body.password
 
   });
   user.register(newUser, req.body.password, (err) => {
@@ -98,6 +98,9 @@ module.exports.processRegister = (req, res, next) => {
 }
 
 module.exports.logout = (req,res,next) => {
-  req.logout();
+  
+  req.logout(function(err) {
+    return next(err);
+  });
   res.redirect('/home')
 }

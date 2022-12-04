@@ -8,47 +8,47 @@ let games = require('../models/gamesModel');
 /* CRUD OPERATIONS*/
 
 // READ
-module.exports.displayGames = (req,res,next)=> {
-    games.find((err, entryRead)=> {
-        if(err)
-        {
+module.exports.displayGames = (req, res, next) => {
+    games.find((err, entryRead) => {
+        if (err) {
             return console.log(err);
         }
-        else
-        {
+        else {
             res.render('games/read', {
-                title: 'Games Database', 
-                entryRead: entryRead
+                title: 'Games Database',
+                entryRead: entryRead,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
-    }); 
+    });
 }
 
 // CREATE
 // DISPLAY
-module.exports.displayCreate = (req,res,next)=> {
-    res.render('games/create', 
-    {title: 'Add entry'});
+module.exports.displayCreate = (req, res, next) => {
+    res.render('games/create',
+        {
+            title: 'Add entry',
+            displayName: req.user ? req.user.displayName : ''
+        });
 }
 
 // PROCESS
-module.exports.processCreate = (req,res,next)=> {
-    let newGames = games ({
-        'username':req.body.username,
-        'gameTitle':req.body.gameTitle,
-        'genre':req.body.genre,
-        'desc':req.body.desc,
-        'rating':req.body.rating
+module.exports.processCreate = (req, res, next) => {
+    let newGames = games({
+        'username': req.body.username,
+        'gameTitle': req.body.gameTitle,
+        'genre': req.body.genre,
+        'desc': req.body.desc,
+        'rating': req.body.rating
 
     });
     games.create(newGames, (err, games) => {
-        if(err)
-        {
+        if (err) {
             console.log(err);
             res.end(err);
         }
-        else
-        {
+        else {
             res.redirect('/games');
         }
     });
@@ -57,60 +57,56 @@ module.exports.processCreate = (req,res,next)=> {
 
 // UPDATE
 // DISPLAY
-module.exports.displayUpdate = (req,res,next)=> {
+module.exports.displayUpdate = (req, res, next) => {
     let id = req.params.id;
-    games.findById(id, (err, entryRead) =>{
-        if(err)
-        {
+    games.findById(id, (err, entryRead) => {
+        if (err) {
             console.log(err);
             res.end(err);
         }
-        else
-        {
-            res.render('games/update', 
-            {title: 'Update Entry', 
-            entryRead: entryRead    
-            });
+        else {
+            res.render('games/update',
+                {
+                    title: 'Update Entry',
+                    entryRead: entryRead,
+                    displayName: req.user ? req.user.displayName:''
+                });
         }
     });
 }
 
 // PROCESS
-module.exports.processUpdate = (req,res,next)=> {
+module.exports.processUpdate = (req, res, next) => {
     let id = req.params.id;
     let updateEntry = games({
-        '_id':id,
-        'username':req.body.username,
-        'gameTitle':req.body.gameTitle,
-        'genre':req.body.genre,
-        'desc':req.body.desc,
-        'rating':req.body.rating
+        '_id': id,
+        'username': req.body.username,
+        'gameTitle': req.body.gameTitle,
+        'genre': req.body.genre,
+        'desc': req.body.desc,
+        'rating': req.body.rating
     });
-    games.updateOne({_id:id}, updateEntry, (err) =>{
-        if(err)
-        {
+    games.updateOne({ _id: id }, updateEntry, (err) => {
+        if (err) {
             console.log(err);
             res.end(err);
         }
-        else
-        {
+        else {
             res.redirect('/games')
         }
     });
 }
 
 // DELETE
-module.exports.performDelete = (req,res,next)=> {
+module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
-    games.deleteOne({_id:id}, (err) =>{
-        if(err)
-        {
+    games.deleteOne({ _id: id }, (err) => {
+        if (err) {
             console.log(err);
             res.end(err);
         }
-        else
-        {
+        else {
             res.redirect('/games')
-        }   
+        }
     });
 }
