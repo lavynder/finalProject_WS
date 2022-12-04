@@ -1,17 +1,41 @@
-<form class="signIn" action="/login" method="post">
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
 
-  <h2>Sign in to your account</h2>
+<form class="signIn" method="post" autocomplete="off">
 
-  <label for="email" class="sr-only">Email Address</label>
-  <input type="email" id="email" name="email" class="form- 
-              control" placeholder="Enter your email address" required>
-
-  <label for="password" class="sr-only">Password</label>
-  <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <h2>Sign up!</h2>
+  <fieldset class="form-group">
+    <label for="email"></label>
+    <input type="email" id="email" name="email" class="form-control" 
+    placeholder="Enter your email" id='email' required autofocus>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="username"></label>
+    <input type="text" class="form-control" name="username" 
+    placeholder="Enter your name" id="username" required>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="displayName"></label>
+    <input type="text" class="form-control" name="displayName" 
+    placeholder="Enter your displayName" id="displayName" required>
+  </fieldset>
+<br>
+  <fieldset class="form-group">
+    <label for="password" class="sr-only"></label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password"
+      required>
+  </fieldset>
+  
   <br>
-  <p>Don't have an account? <a href="/signup">Signup</a> </p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
+  
+  <!-- <label for="email" class="sr-only">Email Address</label>
+  <input type="email" id="email" name="email" class="form- 
+              control" placeholder="Enter your email address" required> -->
+
+  <!-- <label for="password" class="sr-only">Password</label>
+  <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required> -->
+  
 </form>
 </div>
-
 </body>

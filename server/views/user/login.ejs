@@ -1,26 +1,26 @@
 <!-- LOGIN PAGE -->
 <%- include ('../partials/header.ejs') %>
-<%- include ('../partials/main_nav.ejs') %>
+  <%- include ('../partials/main_nav.ejs') %>
 
-<h1>LOGINPAGEPLACEHOLDER</h1>
+    <h1>LOGINPAGEPLACEHOLDER</h1>
 
-<form class="signIn" method="post" autocomplete="off">
-    <h2>Sign in to your account</h2> 
-    <fieldset class="form-group">
+    <form class="form" method="post" autocomplete="off">
+      <h2>Sign in to your account</h2>
+      <fieldset class="form-group">
         <label for="username"> Username </label>
-        <input type="text" class="form-control"
-          name="username" placeholder="Enter your name" id="username" 
-          required autofocus>
-        </fieldset>
+        <input type="text" class="form-control" name="username" placeholder="Enter your name" id="username" required
+          autofocus>
+      </fieldset>
 
-        <fieldset class="form-group">
-            <label for="password" class="sr-only">Password</label> 
-            <input type="password" id="password" name="password" class="form-control" 
-            placeholder="Enter your password" required> 
-          </fieldset>
-            
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          <br>
-  <p>Don't have an account? <a href="/signup">Signup</a> </p> SIGN UP BOTTON NOT FUNCTIONAL YET
+      <fieldset class="form-group">
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password"
+          required>
+      </fieldset>
 
-</form>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Sign in</button>
+      <br>
+      <p>Don't have an account? <a href="/user/register">Signup</a> </p>
+
+    </form>

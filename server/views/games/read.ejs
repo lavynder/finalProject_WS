@@ -7,8 +7,11 @@
             <h1>
                 <%= title %>
             </h1>
-            <a href="/games/create" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add a Game! </a>
+            <% if(typeof displayName=='string' && displayName) { %>
+                <a href="/games/create" class="btn btn-primary" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a Game! </a>
+            <% } %>
+            
             </div>
 
             <!--- Add a Game button -->
@@ -25,55 +28,64 @@
                         <table class="table table-bordered table-striped table-hover">
                             <!--- Table -->
                             <tr>
-                                <th class="text-center col-3">username</th>
+                                <th class="text-center col-3 text-white">username</th>
                                 <!--- Username column -->
-                                <th class="text-center col-4">gameTitle</th>
+                                <th class="text-center col-4 text-white">gameTitle</th>
                                 <!--- Game Title column -->
-                                <th class="text-center col-2">genre</th>
+                                <th class="text-center col-2 text-white">genre</th>
                                 <!--- Genre column -->
-                                <th class="text-center col-4">desc</th>
+                                <th class="text-center col-4 text-white">desc</th>
                                 <!--- Description column -->
-                                <th class="text-center col-2">rating</th>
+                                <th class="text-center col-2 text-white">rating</th>
                                 <!--- Rating column -->
-                                <th class="text-center col-1"></th>
-                                <!--- Delete column -->
-                                <th class="text-center col-1"></th>
+                                
+                                <% if(typeof displayName=='string' && displayName) { %>
+                                    <th class="text-center col-1 text-white"></th>
+                                    <!--- Delete column -->
+                                    <th class="text-center col-1 text-white"></th>
+                                    <% } %>
+                                
                             </tr>
                             <!--Repeat the template-->
                             <% for(let count=0; count<entryRead.length; count++) { %>
                                 <!--- Loop through the array -->
                                 <tr>
-                                    <td class="text-center col-3">
+                                    <td class="text-center col-3 text-white">
                                         <%= entryRead[count].username%>
                                     </td>
                                     <!--- Username column -->
-                                    <td class="text-center col-4">
+                                    <td class="text-center col-4 text-white">
                                         <%= entryRead[count].gameTitle%>
                                     </td>
                                     <!--- Game Title column -->
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-2 text-white">
                                         <%= entryRead[count].genre%>
                                     </td>
                                     <!--- Genre column -->
-                                    <td class="text-center col-4">
+                                    <td class="text-center col-4 text-white">
                                         <%= entryRead[count].desc%>
                                     </td>
                                     <!--- Description column -->
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-2 text-white">
                                         <%= entryRead[count].rating%>
                                     </td>
                                     <!--- Rating column -->
-                                    <td class="text-center col-1">
-                                        <!--- Delete button column -->
+                                    
+                                    <% if(typeof displayName=='string' && displayName) { %>
+                                        <td class="text-center col-1 text-white">
+                                        
 
-                                        <!-- Edit button -->
-                                        <a href="/games/update/<%= entryRead[count]._id %>" class="btn btn-primary">
-                                            <i class="fas fa-pencil-alt"></i> Edit </a>
-                                    </td>
-                                    <!-- Delete button -->
-                                    <td class="text-center col-1">
-                                        <a href="/games/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
-                                            <i class="fas fa-trash-alt"></i> Delete </a>
+                                            <!-- Edit button -->
+                                            <a href="/games/update/<%= entryRead[count]._id %>" class="btn btn-primary">
+                                                <i class="fas fa-pencil-alt"></i> Edit </a>
+                                        </td>
+                                        <!-- Delete button -->
+                                        <td class="text-center col-1">
+                                            <a href="/games/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
+                                                <i class="fas fa-trash-alt"></i> Delete </a>
+                                        <% } %>
+
+                                    
 
                                     </td>
                                 </tr>

@@ -39,19 +39,21 @@ app.use(session({
 // INITIALIZE FLASH
 app.use(flash());
 
-// INITIALIZE PASSPORTS
-app.use(passport.initialize());
-app.use(passport.session());
 
 // CREATE INSTANCE OF USER MODEL
 let userModel = require('../models/userModel')
 let user = userModel.user;
 
+// IMPLEMENT USER AUTHENTICATION
+passport.use(user.createStrategy());
+
 // SERIALIZE AND DESERIALIZE THE USER INFORMATION
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
-
+// INITIALIZE PASSPORTS
+app.use(passport.initialize());
+app.use(passport.session());
 
 // SETTING UP THE REQUIRED ROUTERS
 let indexRouter = require('../routes/index');

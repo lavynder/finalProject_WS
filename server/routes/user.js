@@ -2,10 +2,23 @@ let express = require('express');
 let router = express.Router();
 let userControl = require('../controller/user');
 
-// DISPLAY REGISTRATION PAGE
+
+// LOGIN CONTROLS
+// DISPLAY LOGIN          
+router.get('/login', userControl.displayLogin);
+
+// PROCESS LOGIN
+router.post('/login', userControl.processLogin);
+
+// REGISTRATION CONTROLS
+// DISPLAY REGISTRATION
 router.get('/register', userControl.displayRegister);
 
-// DISPLAY LOGIN PAGE          
-router.get('/login', userControl.displayLogin);
+// PROCESS REGISTER
+router.post('/register', userControl.processRegister);
+
+
+// LOGOUT CONTROL
+router.get('/logout', userControl.logout);
 
 module.exports = router;

@@ -11,20 +11,23 @@ module.exports.displayLanding = (req, res, next) => {
 // DISPLAY HOME PAGE
 module.exports.displayHome = (req, res, next) => {
     res.render('pages/home', { 
-        title: 'home'
+        title: 'home',
+        displayName: req.user ? req.user.displayName:''
       });
 }
 
 // DISPLAY HOME PAGE
 module.exports.displayAbout = (req, res, next) => {
   res.render('pages/about', { 
-      title: 'about'
+      title: 'about',
+      displayName: req.user ? req.user.displayName:''
     });
 }
 
 // DISPLAY HOME PAGE
 module.exports.displayContact = (req, res, next) => {
   res.render('pages/contact', { 
-      title: 'contact'
+      title: 'contact',
+      displayName: req.user ? req.user.displayName:''
     });
 }
