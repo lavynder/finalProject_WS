@@ -80,8 +80,7 @@ module.exports.processRegister = async (req, res, next) => {
     let newUser = user({
       email: req.body.email,
       username: req.body.username,
-      displayName: req.body.displayName,
-      password: req.body.password
+      displayName: req.body.displayName
     });
     user.register(newUser, req.body.password, (err) => {
       if (err) {
