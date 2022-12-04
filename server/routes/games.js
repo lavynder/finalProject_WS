@@ -8,26 +8,36 @@ let gamesControl = require('../controller/games');
 
 /* CRUD OPERATIONS*/
 
+function requireAuth(req,res,next)
+{
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login');
+    }
+    next()
+}
+
+
 // READ OPERATION
 router.get('/', gamesControl.displayGames);
 
 // CREATE OPERATION
 // GET ROUTE FOR DISPLAYING THE CREATE PAGE
-router.get('/create', gamesControl.displayCreate);
+router.get('/create', requireAuth, gamesControl.displayCreate);
 
 // POST ROUTE FOR PROCESSING THE ADD OPERATION
-router.post('/create', gamesControl.processCreate);
+router.post('/create', requireAuth, gamesControl.processCreate);
 
 
 // UPDATE OPERATION
 // GET ROUTE FOR DISPLAYING THE UPDATE PAGE
-router.get('/update/:id', gamesControl.displayUpdate);
+router.get('/update/:id', requireAuth, gamesControl.displayUpdate);
 
 // POST ROUTE FOR PROCESSING THE UPDATE OPERATION
-router.post('/update/:id', gamesControl.processUpdate);
+router.post('/update/:id', requireAuth, gamesControl.processUpdate);
 
 // DELETE OPERATION
 // PERFORM THE DELETE OPERATION
-router.get('/delete/:id', gamesControl.performDelete);
+router.get('/delete/:id', requireAuth, gamesControl.performDelete);
 
 module.exports = router;
