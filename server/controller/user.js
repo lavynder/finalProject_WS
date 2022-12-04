@@ -71,8 +71,16 @@ module.exports.processRegister = async (req, res, next) => {
   let userExists = await user.exists({ email: req.body.email })
 
   if (userExists) {
-    return res.redirect('/home')
-    // return res.status(400).send({ message: 'User already exists' })
+    req.flash(
+      'registerMessage',
+      'Registration Error: User already exists!'
+    )
+    return res.render('user/register',
+        {
+          title: 'Register',
+          registerMessage: req.flash('registerMessage'),
+          displayName: req.user ? req.name.displayName : ''
+        });
   }
 
   else {
