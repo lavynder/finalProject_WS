@@ -39,7 +39,6 @@ app.use(session({
 // INITIALIZE FLASH
 app.use(flash());
 
-
 // CREATE INSTANCE OF USER MODEL
 let userModel = require('../models/userModel')
 let user = userModel.user;
