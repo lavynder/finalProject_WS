@@ -62,19 +62,21 @@
                         Login
                     </a>
             </li>
+
+            <li class="nav-item">
+              <% if (title=="Register" ) { %>
+                <a class="nav-link active" href="/user/register">
+                  <% } else { %>
+                    <a class="nav-link" href="/user/register">
+                      <% } %>
+                        <i class="fa-solid fa-ticket"></i>
+                        Register
+                    </a>
+            </li>
             <% } %>
 
 
-              <li class="nav-item">
-                <% if (title=="Register" ) { %>
-                  <a class="nav-link active" href="/user/register">
-                    <% } else { %>
-                      <a class="nav-link" href="/user/register">
-                        <% } %>
-                          <i class="fa-solid fa-ticket"></i>
-                          Register
-                      </a>
-              </li>
+              
 
 
 

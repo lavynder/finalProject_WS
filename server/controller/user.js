@@ -66,26 +66,26 @@ module.exports.displayRegister = (req, res, next) => {
 
 module.exports.processRegister = (req, res, next) => {
   let newUser = user({
-    'email': req.body.email,
-    'username': req.body.username,
-    'displayName': req.body.displayName,
-    'password':req.body.password
+    email: req.body.email,
+    username: req.body.username,
+    displayName: req.body.displayName,
+    password:req.body.password
 
   });
   user.register(newUser, req.body.password, (err) => {
     if (err) {
       console.log("ERROR WHEN INSERTING NEW USER");
 
-      if (err.name == 'UserExistsError') {
+      if (err.name == 'UserAlreadyExistsException') {
         req.flash('registerMessage',
           'Registration Error: User already exists');
       }
-      return res.render('/user/register',
+      return res.render('user/register',
         {
           title: 'Register',
           registerMessage: req.flash('registerMessage'),
           displayName: req.user ? req.name.displayName : ''
-        })
+        });
     }
     else {
       // IF REGISTRATION IS NOT SUCCESSFUL
