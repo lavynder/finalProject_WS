@@ -25,45 +25,45 @@
                         <table class="table table-bordered table-striped table-hover">
                             <!--- Table -->
                             <tr>
-                                <th class="text-center col-3">username</th>
+                                <th class="text-center col-3 text-white">username</th>
                                 <!--- Username column -->
-                                <th class="text-center col-4">gameTitle</th>
+                                <th class="text-center col-4 text-white">gameTitle</th>
                                 <!--- Game Title column -->
-                                <th class="text-center col-2">genre</th>
+                                <th class="text-center col-2 text-white">genre</th>
                                 <!--- Genre column -->
-                                <th class="text-center col-4">desc</th>
+                                <th class="text-center col-4 text-white">desc</th>
                                 <!--- Description column -->
-                                <th class="text-center col-2">rating</th>
+                                <th class="text-center col-2 text-white">rating</th>
                                 <!--- Rating column -->
-                                <th class="text-center col-1"></th>
+                                <th class="text-center col-1 text-white"></th>
                                 <!--- Delete column -->
-                                <th class="text-center col-1"></th>
+                                <th class="text-center col-1 text-white"></th>
                             </tr>
                             <!--Repeat the template-->
                             <% for(let count=0; count<entryRead.length; count++) { %>
                                 <!--- Loop through the array -->
                                 <tr>
-                                    <td class="text-center col-3">
+                                    <td class="text-center col-3 text-white">
                                         <%= entryRead[count].username%>
                                     </td>
                                     <!--- Username column -->
-                                    <td class="text-center col-4">
+                                    <td class="text-center col-4 text-white">
                                         <%= entryRead[count].gameTitle%>
                                     </td>
                                     <!--- Game Title column -->
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-2 text-white">
                                         <%= entryRead[count].genre%>
                                     </td>
                                     <!--- Genre column -->
-                                    <td class="text-center col-4">
+                                    <td class="text-center col-4 text-white">
                                         <%= entryRead[count].desc%>
                                     </td>
                                     <!--- Description column -->
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-2 text-white">
                                         <%= entryRead[count].rating%>
                                     </td>
                                     <!--- Rating column -->
-                                    <td class="text-center col-1">
+                                    <td class="text-center col-1 text-white">
                                         <!--- Delete button column -->
 
                                         <!-- Edit button -->

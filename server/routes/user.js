@@ -6,15 +6,15 @@ let userControl = require('../controller/user');
 router.get('/login', userControl.displayLogin);
 
 // PROCESS LOGIN
-router.post('login', userControl.processLogin);
+router.post('/login', userControl.processLogin);
 
 // DISPLAY REGISTRATION
 router.get('/register', userControl.displayRegister);
 
 // PROCESS REGISTER
-router.post('login', userControl.processRegister);
+router.post('/login', userControl.processRegister);
 
 // LOGOUT
-router.get('logout', userControl.logout);
+router.get('/logout', userControl.logout);
 
 module.exports = router;
