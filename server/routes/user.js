@@ -14,4 +14,7 @@ router.get('/register', userControl.displayRegister);
 // PROCESS REGISTER
 router.post('login', userControl.processRegister);
 
+// LOGOUT
+router.get('logout', userControl.logout);
+
 module.exports = router;
