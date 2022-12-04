@@ -59,7 +59,7 @@ module.exports.displayRegister = (req, res, next) => {
     })
   }
   else {
-    return res.redirect('index/home')
+    return res.redirect('/home')
   }
 }
 
@@ -79,7 +79,7 @@ module.exports.processRegister = (req, res, next) => {
         req.flash('registerMessage',
           'Registration Error: User already exists');
       }
-      return res.render('user/register',
+      return res.render('/user/register',
         {
           title: 'Register',
           registerMessage: req.flash('registerMessage'),
@@ -89,7 +89,7 @@ module.exports.processRegister = (req, res, next) => {
     else {
       // IF REGISTRATION IS NOT SUCCESSFUL
       return passport.authenticate('local')(req, res, () => {
-        res.redirect('games');
+        res.redirect('/games');
       })
     }
 
@@ -98,5 +98,5 @@ module.exports.processRegister = (req, res, next) => {
 
 module.exports.logout = (req,res,next) => {
   req.logout();
-  res.redirect('/index/home')
+  res.redirect('/home')
 }

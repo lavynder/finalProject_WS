@@ -16,7 +16,7 @@ module.exports.displayGames = (req,res,next)=> {
         }
         else
         {
-            res.render('games/read', {
+            res.render('games/', {
                 title: 'Games Database', 
                 entryRead: entryRead
             });
