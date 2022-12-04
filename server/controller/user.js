@@ -65,6 +65,8 @@ module.exports.displayRegister = (req, res, next) => {
 }
 
 module.exports.processRegister = async (req, res, next) => {
+  // SOURCE: https://stackoverflow.com/questions/70180636/how-to-check-whether-a-user-exists-in-mongoose
+  
   // CHECK TO SEE IF THE USER EXISTS
   let userExists = await user.exists({ email: req.body.email })
 
