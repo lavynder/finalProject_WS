@@ -64,42 +64,48 @@ module.exports.displayRegister = (req, res, next) => {
   }
 }
 
-module.exports.processRegister = (req, res, next) => {
-  let newUser = user({
-    email: req.body.email,
-    username: req.body.username,
-    displayName: req.body.displayName,
-    password:req.body.password
+module.exports.processRegister = async (req, res, next) => {
+  // CHECK TO SEE IF THE USER EXISTS
+  let userExists = await user.exists({ email: req.body.email })
 
-  });
-  user.register(newUser, req.body.password, (err) => {
-    if (err) {
-      console.log("ERROR WHEN INSERTING NEW USER");
+  if (userExists) {
+    return res.redirect('/home')
+    // return res.status(400).send({ message: 'User already exists' })
+  }
 
-      if (err.name == 'UserAlreadyExistsException') {
-        req.flash('registerMessage',
-          'Registration Error: User already exists');
-      }
+  else {
+    
+    let newUser = user({
+      email: req.body.email,
+      username: req.body.username,
+      displayName: req.body.displayName,
+      password: req.body.password
+    });
+    user.register(newUser, req.body.password, (err) => {
+      if (err) {
+        console.log("ERROR WHEN INSERTING NEW USER");
+      
       return res.render('user/register',
         {
           title: 'Register',
           registerMessage: req.flash('registerMessage'),
           displayName: req.user ? req.name.displayName : ''
         });
-    }
-    else {
-      // IF REGISTRATION IS NOT SUCCESSFUL
-      return passport.authenticate('local')(req, res, () => {
-        res.redirect('/home');
-      })
-    }
+      }
+      else {
+        // IF REGISTRATION IS SUCCESSFUL
+        return passport.authenticate('local')(req, res, () => {
+          res.redirect('/home');
+        })
+      }
 
-  })
+    })
+  }
 }
 
-module.exports.logout = (req,res,next) => {
-  
-  req.logout(function(err) {
+module.exports.logout = (req, res, next) => {
+
+  req.logout(function (err) {
     return next(err);
   });
   res.redirect('/home')
