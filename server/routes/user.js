@@ -12,7 +12,7 @@ router.post('/login', userControl.processLogin);
 router.get('/register', userControl.displayRegister);
 
 // PROCESS REGISTER
-router.post('/login', userControl.processRegister);
+router.post('/register', userControl.processRegister);
 
 // LOGOUT
 router.get('/logout', userControl.logout);

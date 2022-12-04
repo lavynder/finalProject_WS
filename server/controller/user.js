@@ -4,7 +4,8 @@ let mongoose = require('mongoose');
 const passport = require('passport');
 
 // CONNECT TO user MODEL
-let user = require('../models/userModel');
+let userModel = require('../models/userModel');
+let user = userModel.user
 
 // DISPLAY LOGIN PAGE
 module.exports.displayLogin = (req, res, next) => {
@@ -18,7 +19,7 @@ module.exports.displayLogin = (req, res, next) => {
       })
   }
   else {
-    return res.redirect('user/login')
+    return res.redirect('/user/login')
   }
 
 }
@@ -35,7 +36,7 @@ module.exports.processLogin = (req, res, next) => {
     if (!user) {
       req.flash('loginMessage',
         'AuthenticationError');
-      return res.redirect('user/login');
+      return res.redirect('/user/login');
     }
 
     req.login(user, (err) => {
@@ -83,13 +84,13 @@ module.exports.processRegister = (req, res, next) => {
         {
           title: 'Register',
           registerMessage: req.flash('registerMessage'),
-          displayName: re1.user ? req.name.displayName : ''
+          displayName: req.user ? req.name.displayName : ''
         })
     }
     else {
       // IF REGISTRATION IS NOT SUCCESSFUL
       return passport.authenticate('local')(req, res, () => {
-        res.redirect('/games');
+        res.redirect('/home');
       })
     }
 
