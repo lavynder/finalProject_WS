@@ -8,7 +8,7 @@ let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
-let flash = require('connect-flash')
+let flash = require('connect-flash');
 
 
 // FOR ENVIRONMENT VARIABLES FOR MONGODB CONNECTIVITY
@@ -22,12 +22,15 @@ let DB = require('./db');
 // POINT MONGOOSE TO DB URI
 mongoose.connect(DB.URI);
 let mongDB = mongoose.connection;
-mongDB.on('error', console.error.bind(console, 'Connection Error: '));
+mongDB.on('error', console.error.bind(console, 'Connection Error:'));
 mongDB.once('open', ()=> {
-  console.log('Connected to the MongoDB');
+  console.log('Connected to MongoDB');
 });
 
 let app = express();
+
+// INITIALIZE FLASH
+app.use(flash());
 
 // SETTING UP EXPRESS SESSION
 app.use(session({
@@ -36,8 +39,6 @@ app.use(session({
   resave: false
 }));
 
-// INITIALIZE FLASH
-app.use(flash());
 
 // CREATE INSTANCE OF USER MODEL
 let userModel = require('../models/userModel')
@@ -58,7 +59,6 @@ app.use(passport.session());
 let indexRouter = require('../routes/index');
 let gamesRouter = require('../routes/games');
 let userRouter = require('../routes/user');
-const { markAsUntransferable } = require('worker_threads');
 
 // VIEW ENGINE SETUP
 app.set('views', path.join(__dirname, '../views'));
