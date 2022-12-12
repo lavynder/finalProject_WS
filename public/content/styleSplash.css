@@ -1,6 +1,7 @@
 :root{
     --textcolor: #EA638C;
     --bgcolor: linear-gradient(#03012C, #B33C86)
+    --font4headers: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 
@@ -29,13 +30,28 @@
     z-index: 10;
     
     
+    
     width: 100%;
     height: clamp(10%, 10%, 15%);
+}
+.titlecontainer{
+    position: fixed;
+    top: 30%;
+    left: 35%;
+
+}
+.auto-type{
+    font-size: clamp(10%, 10%, 15%);
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    
 }
 #title{
     color: #fff;
     font-size: 30px;
     font-weight: bold;
+    font-family: --font4headers;
 }
 .auto-type{
     text-align: center;
@@ -44,6 +60,7 @@
     font-weight: bold;
     padding: 20px 0;
     margin-bottom: 20px;
+    font-family: --font4headers;
 }
 .container{
     background-color: blue;
@@ -55,10 +72,16 @@
     top: 10%;
 
 }
+
+
+
+
+
+
 .btntray{
     position: absolute;
     left:35%;
-    top: -100%;
+    bottom: 100%;
 
     
 
@@ -94,6 +117,7 @@
     text-align: center;
     color: #EA638C;
     text-decoration: none;
+    background-color: #333;
     
     font-family: sans-serif;
     font-weight: bold;
@@ -102,16 +126,23 @@
     
 }
 
+.btntray :hover{
+    background-color: #EA638C;
+    color: #333;
+    scale: 1.25;
+
+}
+
 
 @keyframes slideInBottom {
     0% {
-      transform: translateY(-100%);
+      transform: translateY(100%);
     }
     100% {
       transform: translateY(0);
     }
   }
   @keyframes startAtTop {
-    from {top: -100%;}
+    from {top: 100%;}
     to {top: 40%;}
     }
