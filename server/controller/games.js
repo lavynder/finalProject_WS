@@ -49,6 +49,7 @@ module.exports.processCreate = (req, res, next) => {
             res.end(err);
         }
         else {
+            req.flash('notif', 'Entry has been added!')
             res.redirect('/games');
         }
     });
@@ -92,6 +93,7 @@ module.exports.processUpdate = (req, res, next) => {
             res.end(err);
         }
         else {
+            req.flash('notif', 'Entry has been updated!')
             res.redirect('/games')
         }
     });
@@ -106,6 +108,7 @@ module.exports.performDelete = (req, res, next) => {
             res.end(err);
         }
         else {
+            req.flash('notif', 'Entry has been deleted!')
             res.redirect('/games')
         }
     });
