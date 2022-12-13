@@ -17,8 +17,7 @@ router.get('/register', userControl.displayRegister);
 // PROCESS REGISTER
 router.post('/register', userControl.processRegister);
 
-
 // LOGOUT CONTROL
-router.get('/logout', userControl.logout);
+router.delete('/logout', userControl.logout);
 
 module.exports = router;

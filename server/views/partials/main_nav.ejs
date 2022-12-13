@@ -46,13 +46,17 @@
         <% if(typeof displayName=='string' && displayName) { %>
           <li class="navbar-text">
             <i class="fas fa-lg fa-user"></i>
-            Welcome, <%= displayName %>
+            Welcome, <%= displayName %> 
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="/user/logout">
-              <i class="fas fa-lgsiogn-out-alt"></i>Logout
-            </a> 
+            <form action="/user/logout?_method=DELETE" method="post">
+            <button type="submit" class="btn btn-dark">
+                  <i  class="fas fa-lgsiogn-out-alt">Logout</i>
+            </button>
+          </form>
           </li>
+          
           <% } else { %>
             <li class="nav-item">
               <% if (title=="Login" ) { %>

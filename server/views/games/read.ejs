@@ -1,99 +1,108 @@
 <%- include ('../partials/header.ejs') %>
-<%- include ('../partials/main_nav.ejs') %>
+<%- include ('../partials/messages.ejs') %>
+    <%- include ('../partials/main_nav.ejs') %>
 
-    <main>
-        <div class="jumbotron jumbotron-fluid w-100">
-            <div class="ms-5">
-            <h1>
-                <%= title %>
-            </h1>
-            <% if(typeof displayName=='string' && displayName) { %>
-                <a href="/games/create" class="btn btn-primary" role="button">
-                    <i class="fas fa-plus-circle"></i> Add a Game! </a>
-            <% } %>
-            
-            </div>
-
-            <!--- Add a Game button -->
-            <div class="jumbotron jumbotron-fluid w-100 ms-5">
-                <div class="row">
-                    <!-- row 1 -->
-                    <div class="col-md-offset-3 col-md-10">
-                        
-
-
+        <main>
+            <div class="jumbotron jumbotron-fluid w-100">
+                <div class="ms-5">
+                    <% if(typeof displayName=='string' && displayName) { %>
+                        <h1>Welcome <%= displayName %>
+                        </h1>
                         <br>
-                        <br>
+                        <% } else { %>
 
-                        <table class="table table-bordered table-striped table-hover">
-                            <!--- Table -->
-                            <tr>
-                                <th class="text-center col-3 text-white">username</th>
-                                <!--- Username column -->
-                                <th class="text-center col-4 text-white">gameTitle</th>
-                                <!--- Game Title column -->
-                                <th class="text-center col-2 text-white">genre</th>
-                                <!--- Genre column -->
-                                <th class="text-center col-4 text-white">desc</th>
-                                <!--- Description column -->
-                                <th class="text-center col-2 text-white">rating</th>
-                                <!--- Rating column -->
-                                
-                                <% if(typeof displayName=='string' && displayName) { %>
-                                    <th class="text-center col-1 text-white"></th>
-                                    <!--- Delete column -->
-                                    <th class="text-center col-1 text-white"></th>
-                                    <% } %>
-                                
-                            </tr>
-                            <!--Repeat the template-->
-                            <% for(let count=0; count<entryRead.length; count++) { %>
-                                <!--- Loop through the array -->
+                            <h1>
+                                <%= title %>
+                            </h1>
+
+                        <% } %>
+
+                    <% if(typeof displayName=='string' && displayName) { %>
+                        <a href="/games/create" class="btn btn-primary" role="button">
+                            <i class="fas fa-plus-circle"></i> Add a Game! </a>
+                        <% } %>
+
+                </div>
+
+                <!--- Add a Game button -->
+                <div class="jumbotron jumbotron-fluid w-100 ms-5">
+                    <div class="row">
+                        <!-- row 1 -->
+                        <div class="col-md-offset-3 col-md-10">
+
+                            <br>
+
+                            <table class="table table-bordered table-striped table-hover">
+                                <!--- Table -->
                                 <tr>
-                                    <td class="text-center col-3 text-white">
-                                        <%= entryRead[count].username%>
-                                    </td>
+                                    <th class="text-center col-3 text-white">username</th>
                                     <!--- Username column -->
-                                    <td class="text-center col-4 text-white">
-                                        <%= entryRead[count].gameTitle%>
-                                    </td>
+                                    <th class="text-center col-4 text-white">gameTitle</th>
                                     <!--- Game Title column -->
-                                    <td class="text-center col-2 text-white">
-                                        <%= entryRead[count].genre%>
-                                    </td>
+                                    <th class="text-center col-2 text-white">genre</th>
                                     <!--- Genre column -->
-                                    <td class="text-center col-4 text-white">
-                                        <%= entryRead[count].desc%>
-                                    </td>
+                                    <th class="text-center col-4 text-white">desc</th>
                                     <!--- Description column -->
-                                    <td class="text-center col-2 text-white">
-                                        <%= entryRead[count].rating%>
-                                    </td>
+                                    <th class="text-center col-2 text-white">rating</th>
                                     <!--- Rating column -->
-                                    
-                                    <% if(typeof displayName=='string' && displayName) { %>
-                                        <td class="text-center col-1 text-white">
-                                        
 
-                                            <!-- Edit button -->
-                                            <a href="/games/update/<%= entryRead[count]._id %>" class="btn btn-primary">
-                                                <i class="fas fa-pencil-alt"></i> Edit </a>
-                                        </td>
-                                        <!-- Delete button -->
-                                        <td class="text-center col-1">
-                                            <a href="/games/delete/<%= entryRead[count]._id %>" class="btn btn-danger">
-                                                <i class="fas fa-trash-alt"></i> Delete </a>
+                                    <% if(typeof displayName=='string' && displayName) { %>
+                                        <th class="text-center col-1 text-white"></th>
+                                        <!--- Delete column -->
+                                        <th class="text-center col-1 text-white"></th>
                                         <% } %>
 
-                                    
-
-                                    </td>
                                 </tr>
-                                <% } %>
-                        </table>
+                                <!--Repeat the template-->
+                                <% for(let count=0; count<entryRead.length; count++) { %>
+                                    <!--- Loop through the array -->
+                                    <tr>
+                                        <td class="text-center col-3 text-white">
+                                            <%= entryRead[count].username%>
+                                        </td>
+                                        <!--- Username column -->
+                                        <td class="text-center col-4 text-white">
+                                            <%= entryRead[count].gameTitle%>
+                                        </td>
+                                        <!--- Game Title column -->
+                                        <td class="text-center col-2 text-white">
+                                            <%= entryRead[count].genre%>
+                                        </td>
+                                        <!--- Genre column -->
+                                        <td class="text-center col-4 text-white">
+                                            <%= entryRead[count].desc%>
+                                        </td>
+                                        <!--- Description column -->
+                                        <td class="text-center col-2 text-white">
+                                            <%= entryRead[count].rating%>
+                                        </td>
+                                        <!--- Rating column -->
 
+                                        <% if(typeof displayName=='string' && displayName) { %>
+                                            <td class="text-center col-1 text-white">
+
+
+                                                <!-- Edit button -->
+                                                <a href="/games/update/<%= entryRead[count]._id %>"
+                                                    class="btn btn-primary">
+                                                    <i class="fas fa-pencil-alt"></i> Edit </a>
+                                            </td>
+                                            <!-- Delete button -->
+                                            <td class="text-center col-1">
+                                                <a href="/games/delete/<%= entryRead[count]._id %>"
+                                                    class="btn btn-danger">
+                                                    <i class="fas fa-trash-alt"></i> Delete </a>
+                                                <% } %>
+
+
+
+                                            </td>
+                                    </tr>
+                                    <% } %>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-    </main>
-    <%- include ('../partials/footer.ejs') %>
+        </main>
+        <%- include ('../partials/footer.ejs') %>

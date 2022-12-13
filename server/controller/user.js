@@ -7,24 +7,15 @@ const passport = require('passport');
 let userModel = require('../models/userModel');
 let user = userModel.user
 
-// DISPLAY LOGIN PAGE
+// LOGIN PAGES
 module.exports.displayLogin = (req, res, next) => {
-  if (!req.user) {
-    res.render('user/login',
-      {
-        title: 'Login',
-        message: req.flash('loginMessage'),
-        displayName: req.user ? req.user.displayName : ''
-
-      })
+  res.render('user/login', {
+    title: 'Login',
+    displayName: req.user ? req.name.displayName : ''
   }
-  else {
-    return res.redirect('/user/login')
-  }
-
+  );
 }
 
-// PROCESS LOGIN PAGE
 module.exports.processLogin = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     // SERVER ERROR
@@ -34,8 +25,7 @@ module.exports.processLogin = (req, res, next) => {
 
     // AUTHENTICATION ERROR
     if (!user) {
-      req.flash('loginMessage',
-        'Incorrect username or password');
+      req.flash('error_msg', 'Incorrect username or password');
       return res.redirect('/user/login');
     }
 
@@ -43,13 +33,14 @@ module.exports.processLogin = (req, res, next) => {
       if (err) {
         return next(err)
       }
+      req.flash('success_msg', "You have successfully logged in!")
       return res.redirect('/home')
     })
   })(req, res, next)
 }
 
 
-//DISPLAY REGISTRATION PAGE
+//REGISTRATION PAGES
 module.exports.displayRegister = (req, res, next) => {
   // CHECK IF USER IS NOT ALREADY LOGGED IN
   if (!req.user) {
@@ -72,13 +63,11 @@ module.exports.processRegister = async (req, res, next) => {
 
   if (userExists) {
     req.flash(
-      'registerMessage',
-      'Registration Error: User already exists!'
+      'error_msg','Registration Error: User already exists!'
     )
     return res.render('user/register',
         {
           title: 'Register',
-          registerMessage: req.flash('registerMessage'),
           displayName: req.user ? req.name.displayName : ''
         });
   }
@@ -94,28 +83,37 @@ module.exports.processRegister = async (req, res, next) => {
       if (err) {
         console.log("ERROR WHEN INSERTING NEW USER");
       
-      return res.render('user/register',
+      req.flash('error_msg', 
+      'An error occured during registration, Sorry!')
+      return redirect.render('user/register',
         {
           title: 'Register',
-          registerMessage: req.flash('registerMessage'),
           displayName: req.user ? req.name.displayName : ''
         });
       }
       else {
         // IF REGISTRATION IS SUCCESSFUL
         return passport.authenticate('local')(req, res, () => {
+          req.flash('success_msg', 
+          'You have been registered and logged in!')
           res.redirect('/home');
         })
       }
-
     })
   }
 }
 
-module.exports.logout = (req, res, next) => {
 
+// LOGOUT
+module.exports.logout = (req, res, next) => {
   req.logout(function (err) {
-    return next(err);
+    // IN CASE OF ERROR
+    if(err) {
+      return next(err);
+    }
+    req.flash('success_msg', 'You have been logged out!')
+    res.redirect('/home')
+
   });
-  res.redirect('/home')
+  
 }

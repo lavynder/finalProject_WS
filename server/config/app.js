@@ -1,19 +1,26 @@
-// 3RD PARTY PACKAGES
+// DEPENDANCIES
 let createError = require('http-errors');
-let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+
+/* TO ALLOW FOR A MORE SECURE WAY TO LOGOUT, ADDED METHOD-OVERRIDE 
+SOURCE: https://www.youtube.com/watch?v=-RCnNyD0L-s */
+let methodOverride = require('method-override');
+
+/* FOR ENVIRONMENT VARIABLES FOR MONGODB CONNECTIVITY
+SOURCE: https://www.youtube.com/watch?v=hZUNMYU4Kzo */
+let env = require('dotenv').config();
+
+let express = require('express');
 let session = require('express-session');
-let passport = require('passport');
-let passportLocal = require('passport-local');
-let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
 
+let passport = require('passport');
+let passportLocal = require('passport-local');
 
-// FOR ENVIRONMENT VARIABLES FOR MONGODB CONNECTIVITY
-// SOURCE: https://www.youtube.com/watch?v=hZUNMYU4Kzo
-let env = require('dotenv').config();
+// LOCAL STRATEGY
+let localStrategy = passportLocal.Strategy;
 
 // CONFIG MONGODB
 let mongoose = require('mongoose');
@@ -27,10 +34,11 @@ mongDB.once('open', ()=> {
   console.log('Connected to MongoDB');
 });
 
-let app = express();
+// CREATE INSTANCE OF USER MODEL
+let userModel = require('../models/userModel')
+let user = userModel.user;
 
-// INITIALIZE FLASH
-app.use(flash());
+let app = express();
 
 // SETTING UP EXPRESS SESSION
 app.use(session({
@@ -39,10 +47,22 @@ app.use(session({
   resave: false
 }));
 
+// INITIALIZE PASSPORTS
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'));
 
-// CREATE INSTANCE OF USER MODEL
-let userModel = require('../models/userModel')
-let user = userModel.user;
+// INITIALIZE FLASH
+app.use(flash());
+
+// CREATING GLOBAL VARIABLES FOR FLASH MESSAGES IN MIDDLEWARE
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.notification = req.flash('notif')
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+})
+
 
 // IMPLEMENT USER AUTHENTICATION
 passport.use(user.createStrategy());
@@ -50,10 +70,6 @@ passport.use(user.createStrategy());
 // SERIALIZE AND DESERIALIZE THE USER INFORMATION
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
-
-// INITIALIZE PASSPORTS
-app.use(passport.initialize());
-app.use(passport.session());
 
 // SETTING UP THE REQUIRED ROUTERS
 let indexRouter = require('../routes/index');
