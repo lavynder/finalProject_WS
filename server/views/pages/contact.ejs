@@ -1,25 +1,57 @@
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/main_nav.ejs') %>
 
+<body>
+<div>
+<img src= ../../assets/images/cPic.jpg alt="coolpic" id="coolpic"> <!-- background image link--> 
+</div>
+<div class="Container">
+<br>
+<div class="jumbotron-fluid"> <!-- contact welcome --> 
+  <h1 class="display-9"><b>Get In Touch</h1>
+  <p class="lead"><b>Like the reviews? Want to suggest a game? Just want to chat? Get in touch with our team below! 
+  </div>
+
+<div class="center">
 <form class="row g-3">
-  <div class="col-md-6" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
+  <div class="col-md-6 text-white" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
     <label for="nameInput">Name</label> <!-- label for="nameInput" -->
-    <textarea class="form-control" id="nameInput" rows="1" placeholder="John Doe" required></textarea> <!-- textarea class="form-control" id="nameInput" rows="1" placeholder="John Doe" required -->
+    <textarea class="form-control bg-dark text-white" id="nameInput" rows="1" placeholder="John Doe" required></textarea> <!-- textarea class="form-control" id="nameInput" rows="1" placeholder="John Doe" required -->
   </div>
-  <div class="col-md-6" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
+  <div class="col-md-6 text-white" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
     <label for="emailInput">Email address</label> <!-- label for="emailInput" -->
-    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required> <!-- input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required -->
+    <input type="email" class="form-control bg-dark text-white" id="emailInput" placeholder="name@example.com" required> <!-- input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required -->
   </div>
-  <div class="col-12" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
+  <div class="col-12 text-white" action=cunninghaml784@gmail.com ?subject=info Form method="post" enctype="text/plain"> <!-- form action="mailto:cunninghaml784@gmail.com" method="post" enctype="text/plain" -->
     <label for="messageInput">Message</label> <!-- label for="messageInput" -->
-    <textarea class="form-control" id="messageInput" rows="3" required></textarea> <!-- textarea class="form-control" id="messageInput" rows="3" required -->
+    <textarea class="form-control bg-dark text-white" id="messageInput" rows="3" required></textarea> <!-- textarea class="form-control" id="messageInput" rows="3" required -->
     <div class="form-group form-check"> <!-- div class="form-group form-check" -->
     <input type="checkbox" class="form-check-input" id="robotCheck" required> <!-- input type="checkbox" class="form-check-input" id="robotCheck" required -->
     <label class="form-check-label" for="robotCheck">I am not a robot</label> <!-- label class="form-check-label" for="robotCheck">I am not a robot</label -->
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Submit</button> <!-- button type="submit" class="btn btn-primary">Submit</button -->
+  <button type="submit" class="btn btn-light">Submit</button> <!-- button type="submit" class="btn btn-light">Submit</button -->
   </div>
+</div>
+</div>
 </form> 
+</body>
+
+<!-- page styles --> 
+<style> 
+.center { /* centers the container */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -60%);
+  transform: translate(-50%, -50%);
+}
+
+.jumbotron-fluid { /* makes trnasparent */
+    background: none
+} 
+</style>
+
 
 <%- include ('../partials/footer.ejs') %>
