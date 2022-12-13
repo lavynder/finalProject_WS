@@ -5,10 +5,23 @@
         <source src="../../assets/videos/bgvid.mp4" type="video/mp4" alt="BACKGROUND VIDEO"> <!-- Source of the video -->
     </video>
     <!--Company/Site name-->
-    <div class="pgheader">
-    <h1 id="companyname"><%= title %> </h1>
-    
+    <div class="titlecontainer">
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <p id="title"><span class="auto-type"></span></p>
+        
+            <!--Script makes the typing animation for the title-->
+            <script>
+                var typed = new Typed('.auto-type', {
+                    strings: ["Game_Reviews_4U"],
+                    typeSpeed: 100,
+                    
+                    loop: false,
+                    
+                });
+            </script>
+        
     </div>
+    
         <div class="btntray">
             <!--This is the button tray-->
 

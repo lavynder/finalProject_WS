@@ -1,6 +1,7 @@
 :root{
     --textcolor: #EA638C;
     --bgcolor: linear-gradient(#03012C, #B33C86)
+    --font4headers: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 
@@ -24,9 +25,10 @@
     font-weight: bold;
 }
 #title{
-    color: #fff;
+    color: #333;
     font-size: 30px;
     font-weight: bold;
+    font-family: --font4headers
 }
 .auto-type{
     text-align: center;
@@ -81,20 +83,19 @@
     text-align: center;
     color: #EA638C;
     text-decoration: none;
-    
+    background-color: #333;
     font-family: sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     
     
 }
-.btntray :before{
-    animation: btnhover;
-    animation-duration: 5s;
-    
-}
+
 .btntray :hover{
+    background-color: #EA638C;
+    color: #333;
     scale: 1.25;
+
 }
 @keyframes slideInLeft {
     0% {
