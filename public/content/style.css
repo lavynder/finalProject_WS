@@ -5,9 +5,7 @@
 }
 
 
-.bg{
-    background-color: red;
-}
+
 
 #bgvid{
     position: fixed;
@@ -25,18 +23,20 @@
     font-weight: bold;
 }
 #title{
-    color: #333;
+    color: var(--textcolor);
     font-size: 30px;
     font-weight: bold;
-    font-family: --font4headers
+    font-family: var(--font4headers);
 }
+
 .auto-type{
     text-align: center;
-    color: #fff;
+    color: purple;
     font-size: 30px;
     font-weight: bold;
     padding: 20px 0;
     margin-bottom: 20px;
+    font-family: var(--font4headers);
 }
 .container{
     background-color: blue;
@@ -81,7 +81,7 @@
 
 .btntray a{     /*This is used for designing the interior of the button*/
     text-align: center;
-    color: #EA638C;
+    color: #23395d;
     text-decoration: none;
     background-color: #333;
     font-family: sans-serif;
@@ -91,8 +91,29 @@
     
 }
 
+.titleblock {
+    text-align: center;
+    color: #EA638C;
+    text-decoration: none;
+    background-color: #333;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    
+    border: 2px solid purple;
+    border-radius: 15px;
+    box-shadow: 0 0 0.5em #333;
+    width: 30%;
+    left: 33%;
+    position: absolute;
+
+
+
+}
+
 .btntray :hover{
-    background-color: #EA638C;
+    background-color: #23395d;
     color: #333;
     scale: 1.25;
 
@@ -105,6 +126,7 @@
       transform: translateX(0);
     }
   }
+
 
   .jumbotron-fluid{
     text-align: center;
