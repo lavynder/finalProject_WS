@@ -101,11 +101,12 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 1.5em;
-    padding: 0.5em;
-    margin: 0.5em;
-    border: 1px solid #333;
-    border-radius: 0.5em;
+    
+    border: 2px solid purple;
+    border-radius: 15px;
     box-shadow: 0 0 0.5em #333;
+    width: 30%;
+    left: 35%;
 
 }
 
