@@ -16,11 +16,16 @@ let express = require('express');
 let session = require('express-session');
 let flash = require('connect-flash');
 
+// PASSPORT DEPENDANCIES
 let passport = require('passport');
 let passportLocal = require('passport-local');
+let passportGoogle = require('passport-google-oauth20')
+const passportTwitter = require('passport-twitter')
 
-// LOCAL STRATEGY
-let localStrategy = passportLocal.Strategy;
+// CREATE INSTANCE OF USER MODEL
+let userModel = require('../models/userModel')
+let user = userModel.user;
+
 
 // CONFIG MONGODB
 let mongoose = require('mongoose');
@@ -34,9 +39,40 @@ mongDB.once('open', ()=> {
   console.log('Connected to MongoDB');
 });
 
-// CREATE INSTANCE OF USER MODEL
-let userModel = require('../models/userModel')
-let user = userModel.user;
+// STRATEGIES
+let localStrategy = passportLocal.Strategy;
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const twitterStrategy = require('passport-twitter')
+
+passport.use(new twitterStrategy ({
+    consumerKey: process.env.TWITTER_ID,
+    consumerSecret: process.env.TWITTER_SECRET,
+    callbackURL: 'http://127.0.0.1:3000/user/twitterRedirect'
+},
+  function(token, tokenSecret, profile, done) {
+    user.findOne({ username: profile.username }, function(err, cred) {
+      if(err) { return cb(err); }
+      if(!cred) {
+      
+        let newUser = user({
+          username: profile.username,
+          displayName: profile.displayName
+        });
+
+        // SAVE THE USER INTO THE DATABASE
+        newUser.save()
+        return cb(null, user);
+      } else {
+        user.findOne({username: cred.username}, function(err, user) {
+          if (err) {return cb(err); }
+          if (!user) { return cb(null, false); }
+          return cb(null, user);
+        });
+      }
+    });
+
+  }
+))
 
 let app = express();
 
@@ -50,6 +86,7 @@ app.use(session({
 // INITIALIZE PASSPORTS
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(methodOverride('_method'));
 
 // INITIALIZE FLASH
@@ -75,6 +112,10 @@ passport.deserializeUser(user.deserializeUser());
 let indexRouter = require('../routes/index');
 let gamesRouter = require('../routes/games');
 let userRouter = require('../routes/user');
+const { profile } = require('console');
+const { access } = require('fs');
+const { css } = require('jquery');
+const { createBrotliCompress } = require('zlib');
 
 // VIEW ENGINE SETUP
 app.set('views', path.join(__dirname, '../views'));

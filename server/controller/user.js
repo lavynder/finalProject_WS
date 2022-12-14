@@ -39,8 +39,7 @@ module.exports.processLogin = (req, res, next) => {
   })(req, res, next)
 }
 
-
-//REGISTRATION PAGES
+// REGISTRATION PAGES
 module.exports.displayRegister = (req, res, next) => {
   // CHECK IF USER IS NOT ALREADY LOGGED IN
   if (!req.user) {
@@ -103,6 +102,42 @@ module.exports.processRegister = async (req, res, next) => {
   }
 }
 
+// 3RD PARTY AUTHENTICATION
+
+// GOOGLE
+module.exports.googleAuth = (req, res, next) => {
+  passport.authenticate('google', {scope: ['profile'] }, (err, user, info) => {  
+    // SERVER ERROR
+    if (err) {
+      return next(err);
+    }
+  }) (req, res, next)
+
+}
+
+module.exports.googleRedirect = (req, res, next) => {
+  passport.authenticate('google', { 
+    failureRedirect: '/user/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    req.flash('success_msg', 'Login successful!')
+    res.redirect('/');
+  };
+}
+
+// TWITTER
+module.exports.twitterAuth = (req, res, next) => {
+  passport.authenticate('twitter');
+}
+
+module.exports.twitterRedirect = (req, res, next) => {
+  passport.authenticate('twitter', 
+  { failureRedirect: '/user/login', failure: true }),
+  function(req, res) {
+    req.flash('success_msg', 'Login successful!')
+    res.redirect('/home')
+  }
+}
 
 // LOGOUT
 module.exports.logout = (req, res, next) => {
