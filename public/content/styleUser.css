@@ -1,0 +1,60 @@
+:root{
+    --textcolor: #EA638C;
+    --bgcolor: linear-gradient(#03012C, #B33C86)
+    --font4headers: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    
+}
+
+body {
+    background-color: purple;
+}
+
+h1{
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--textcolor);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #fff, 0 0 35px #fff;
+}
+
+h2{
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--textcolor);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #fff, 0 0 35px #fff;
+}
+
+label{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--textcolor);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #fff, 0 0 35px #fff;
+    display: block;
+    
+
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+
+}

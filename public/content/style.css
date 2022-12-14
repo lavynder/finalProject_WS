@@ -81,7 +81,7 @@
 
 .btntray a{     /*This is used for designing the interior of the button*/
     text-align: center;
-    color: #23395d;
+    color: #0062cc;
     text-decoration: none;
     background-color: #333;
     font-family: sans-serif;
@@ -100,7 +100,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 1.5em;
-    
+    margin-top: 2%;
     border: 2px solid purple;
     border-radius: 15px;
     box-shadow: 0 0 0.5em #333;
