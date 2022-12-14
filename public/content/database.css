@@ -1,4 +1,5 @@
-#titleStyle {
+/* Design for the title of database page before user logs in*/
+#titleStyle { 
     color: #fff;
   text-shadow:
       0 0 7px #fff,
@@ -9,6 +10,7 @@
 
 }
 
+/*Design for title of database page after user logs in*/
 #welcomeStyle {
     color: #fff;
   text-shadow:
@@ -20,6 +22,7 @@
 
 }
 
+/*main backround color*/
 #main {
 background-color: black;
 height: 100%;
@@ -27,6 +30,7 @@ width: 100%;
 
 }
 
+/*adds styling to database table*/
 #tableStyle{
     border: 2px solid purple;
     box-shadow: 0 0 0.5em #333;
@@ -35,10 +39,8 @@ width: 100%;
     margin-left: auto;
 }
 
-#formStyle{
-    color: lightgrey;
-}
 
+/* adds style to everything in the container (the form for add and update)*/
 .container{
     position: absolute;
     width: clamp(200px, 50%, 100%);
@@ -52,8 +54,4 @@ width: 100%;
     box-shadow: 0 0 0.5em rgb(244, 107, 194);
     background-image: linear-gradient(#19011c, #0d0509);
     
-}
-
-#form-group{
-    color: white;
 }
