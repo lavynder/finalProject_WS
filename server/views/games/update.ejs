@@ -1,7 +1,9 @@
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/main_nav.ejs') %>
 
-<main id = "main">
+<div>
+<img src= ../../assets/images/cPic.jpg alt="coolpic" id="coolpic"> <!-- background image link--> 
+</div>
 <link rel="stylesheet" href="../../../content/database.css"/>
     <div class="container">
         <div class="row">
@@ -57,16 +59,15 @@
 
 
                     `
-            </div>
-            <br>
-            <button class="btn-btn-primary" type="submit">
-                <i class="fas fa-edit"></i>Submit</button> <!-- button to  submit the form -->
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i>Submit</button> <!-- button to  submit the form -->
 
-            <a href="/games" class="btn btn-warning">
-                <i class="fas fa-undo"></i>Cancel</a> <!-- button to cancel the form -->
+                <a href="/games" class="btn btn-warning">
+                    <i class="fas fa-undo"></i>Cancel</a> <!-- button to cancel the form -->
 
             </form>
         </div>
     </div>
-</main>
 <%- include ('../partials/footer.ejs') %>

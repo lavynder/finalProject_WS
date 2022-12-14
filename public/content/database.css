@@ -51,4 +51,9 @@ width: 100%;
     border-radius: 3%;
     box-shadow: 0 0 0.5em rgb(244, 107, 194);
     background-image: linear-gradient(#19011c, #0d0509);
+    
+}
+
+#form-group{
+    color: white;
 }
