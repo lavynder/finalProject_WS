@@ -35,6 +35,7 @@ module.exports.displayCreate = (req, res, next) => {
 
 // PROCESS
 module.exports.processCreate = (req, res, next) => {
+    // CREATES AN OBJECT TO INSERT INTO THE TABLE
     let newGames = games({
         'username': req.body.username,
         'gameTitle': req.body.gameTitle,
@@ -43,12 +44,14 @@ module.exports.processCreate = (req, res, next) => {
         'rating': req.body.rating
 
     });
+    // INSERTS THE OBJECT INTO THE TABLE
     games.create(newGames, (err, games) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
+            // NOTIFIES THE USER USING A FLASH MESSSAGE AND REDIRECTS TO THE DATABASE
             req.flash('notif', 'Entry has been added!')
             res.redirect('/games');
         }
