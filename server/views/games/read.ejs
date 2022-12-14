@@ -5,6 +5,8 @@
         <main id = "main">
         <link rel="stylesheet" href="../../../content/database.css"/>
             <div class="jumbotron jumbotron-fluid w-100" >
+
+                <!-- This div class changes aspects of design based on if user is logged in or not -->
                 <div class="ms-5"> 
                     <% if(typeof displayName=='string' && displayName) { %>
                         <h1 id = "welcomeStyle">Welcome <%= displayName %>

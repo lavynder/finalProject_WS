@@ -62,16 +62,6 @@
     margin-bottom: 20px;
     font-family: --font4headers;
 }
-.container{
-    background-color: blue;
-    position: absolute;
-    width: clamp(200px, 75%, 100%);
-    height: clamp(200px, 75%, 100%);
-    right: 10%;
-    left: 10%;
-    top: 10%;
-
-}
 
 
 
