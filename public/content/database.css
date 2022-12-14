@@ -1,0 +1,59 @@
+#titleStyle {
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 21px #fff,
+      0 0 42px #EA638C,
+      0 0 102px #EA638C,
+      0 0 151px #EA638C;
+
+}
+
+#welcomeStyle {
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 21px #fff,
+      0 0 42px #EA638C,
+      0 0 102px #EA638C,
+      0 0 151px #EA638C;
+
+}
+
+#main {
+background-color: black;
+height: 100%;
+width: 100%;
+
+}
+
+#tableStyle{
+    border: 2px solid purple;
+    box-shadow: 0 0 0.5em #333;
+    position: absolute;
+    width: 70%;
+    margin-left: auto;
+}
+
+#formStyle{
+    color: lightgrey;
+}
+
+.container{
+    position: absolute;
+    width: clamp(200px, 50%, 100%);
+    height: clamp(200px, 75%, 100%);
+    margin-top: 3%;
+    right: 10%;
+    left: 10%;
+    top: 10%;
+    border: 2px solid purple;
+    border-radius: 3%;
+    box-shadow: 0 0 0.5em rgb(244, 107, 194);
+    background-image: linear-gradient(#19011c, #0d0509);
+    
+}
+
+#form-group{
+    color: white;
+}

@@ -1,17 +1,18 @@
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/messages.ejs') %>
-    <%- include ('../partials/main_nav.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
 
-        <main>
-            <div class="jumbotron jumbotron-fluid w-100">
-                <div class="ms-5">
+        <main id = "main">
+        <link rel="stylesheet" href="../../../content/database.css"/>
+            <div class="jumbotron jumbotron-fluid w-100" >
+                <div class="ms-5"> 
                     <% if(typeof displayName=='string' && displayName) { %>
-                        <h1>Welcome <%= displayName %>
+                        <h1 id = "welcomeStyle">Welcome <%= displayName %>
                         </h1>
                         <br>
                         <% } else { %>
 
-                            <h1>
+                            <h1 class = "title" id = "titleStyle">
                                 <%= title %>
                             </h1>
 
@@ -28,22 +29,22 @@
                 <div class="jumbotron jumbotron-fluid w-100 ms-5">
                     <div class="row">
                         <!-- row 1 -->
-                        <div class="col-md-offset-3 col-md-10">
+                        <div class="col-md-offset-3 col-md-15">
 
                             <br>
 
-                            <table class="table table-bordered table-striped table-hover">
+                            <table class="table table-bordered table-striped table-hover" id = "tableStyle">
                                 <!--- Table -->
                                 <tr>
-                                    <th class="text-center col-3 text-white">username</th>
+                                    <th class="text-center col-3 text-white">Your Name</th>
                                     <!--- Username column -->
-                                    <th class="text-center col-4 text-white">gameTitle</th>
+                                    <th class="text-center col-4 text-white">Game Title</th>
                                     <!--- Game Title column -->
-                                    <th class="text-center col-2 text-white">genre</th>
+                                    <th class="text-center col-2 text-white">Genre</th>
                                     <!--- Genre column -->
-                                    <th class="text-center col-4 text-white">desc</th>
+                                    <th class="text-center col-4 text-white">Description</th>
                                     <!--- Description column -->
-                                    <th class="text-center col-2 text-white">rating</th>
+                                    <th class="text-center col-2 text-white">Rating</th>
                                     <!--- Rating column -->
 
                                     <% if(typeof displayName=='string' && displayName) { %>
@@ -104,5 +105,7 @@
                         </div>
                     </div>
                 </div>
-        </main>
+       
         <%- include ('../partials/footer.ejs') %>
+
+         </main>
